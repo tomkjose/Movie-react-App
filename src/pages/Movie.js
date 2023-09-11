@@ -4,6 +4,7 @@ import { fetchMovieDetails } from "../api";
 import Rating from "@mui/material/Rating";
 import SwipeableTextMobileStepper from "../component/SwipeableTextMobileStepper";
 import "../styles/movie.css";
+import { CarouselTransition } from "../component/CarouselTransition";
 function Movie() {
   const { id } = useParams();
   const [movie, setMovie] = useState({});
@@ -36,7 +37,8 @@ function Movie() {
           </div>
         </div>
         <h3>Gallery</h3>
-        <SwipeableTextMobileStepper image={movie.image} />
+        {/* <SwipeableTextMobileStepper image={movie.image} /> */}
+        <CarouselTransition image={movie.image} />
       </div>
     </div>
   );
