@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Form } from "react-router-dom";
+import { HashRouter as Router, Routes, Route, Form } from "react-router-dom";
 import {
   Home,
   Movie,
@@ -22,7 +22,6 @@ function App() {
       setMovies(movies);
     }
     getMovies();
-    console.log("movies", movies);
   }, []);
 
   return (
