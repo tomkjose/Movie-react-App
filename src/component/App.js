@@ -1,4 +1,4 @@
-import { HashRouter as Router, Routes, Route, Form } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import {
   Home,
   Movie,
@@ -29,18 +29,18 @@ function App() {
       <Router>
         <Navbar />
         <Routes>
-          <Route exact path="/" element={<Home movies={movies} />}></Route>
-          <Route exact path="/movie/:id" element={<Movie />}></Route>
-          <Route exact path="/movie/add" element={<AddMovie />}></Route>
+          <Route exact path="/" element={<Home movies={movies} />} />
+          <Route exact path="/movie/:id" element={<Movie />} />
+          <Route exact path="/movie/add" element={<AddMovie />} />
           <Route
             exact
             path="/movie/update/:id"
             element={<UpdateMovie />}
           ></Route>
-          <Route exact path="/profile" element={<Profile />}></Route>
-          <Route exact path="/signin" element={<SignIn />}></Route>
-          <Route exact path="/sign" element={<SignUp />}></Route>
-          <Route path="*" element={<Fof />}></Route>
+          <Route exact path="/profile" element={<Profile />} />
+          <Route exact path="/signin" element={<SignIn />} />
+          <Route exact path="/signup" element={<SignUp />} />
+          <Route path="*" element={<Fof />} />
         </Routes>
       </Router>
     </div>

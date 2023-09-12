@@ -6,10 +6,10 @@ import Typography from "@mui/material/Typography";
 import Skeleton from "@mui/material/Skeleton";
 import Rating from "@mui/material/Rating";
 import { Link } from "react-router-dom";
-
+import "../styles/home.css";
 export default function MovieCard({ movie }) {
   return (
-    <Card sx={{ width: "20%" }} key={movie.id}>
+    <Card sx={{ width: "20%", backgroundColor: "#272b35" }} key={movie.id}>
       {movie ? (
         <CardMedia
           sx={{ height: "300px" }}
@@ -25,7 +25,7 @@ export default function MovieCard({ movie }) {
       ) : (
         <Skeleton width={210} height={118}></Skeleton>
       )}
-      <CardContent>
+      <CardContent sx={{ color: "white", backgroundColor: "#272b35" }}>
         <Link to={`/movie/${movie._id}`}>
           <Typography gutterBottom variant="h5" component="div">
             {movie ? (
@@ -35,7 +35,19 @@ export default function MovieCard({ movie }) {
             )}
           </Typography>
         </Link>
-        <Rating name="size-medium" defaultValue={movie.rating} readOnly />
+        <Rating
+          name="size-medium"
+          defaultValue={movie.rating}
+          readOnly
+          sx={{
+            "& .MuiRating-iconFilled": {
+              color: "#faaf00",
+            },
+            "& .MuiRating-iconEmpty": {
+              color: "#faaf00",
+            },
+          }}
+        />
       </CardContent>
     </Card>
   );

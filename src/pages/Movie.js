@@ -19,11 +19,23 @@ function Movie() {
   }, []);
   console.log("movie.image", movie.image);
   return (
-    <div className="Movie">
+    <div className="Movie" style={{ color: "white" }}>
       <div className="main">
         <div className="header">
           <h2 className="title">{movie.title}</h2>
-          <Rating name="size-large" defaultValue={movie.rating} size="large" />
+          <Rating
+            name="size-large"
+            defaultValue={movie.rating}
+            size="large"
+            sx={{
+              "& .MuiRating-iconFilled": {
+                color: "#faaf00",
+              },
+              "& .MuiRating-iconEmpty": {
+                color: "#faaf00",
+              },
+            }}
+          />
         </div>
         <div className="images">
           <img
