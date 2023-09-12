@@ -38,7 +38,10 @@ function Navbar() {
 
   return (
     <AppBar position="static" sx={{ boxShadow: "none" }}>
-      <Container maxWidth="xl" sx={{ backgroundColor: "#22262f" }}>
+      <Container
+        maxWidth="xl"
+        sx={{ backgroundColor: "#22262f", color: "white" }}
+      >
         <Toolbar disableGutters sx={{ backgroundColor: "#22262f" }}>
           {/* <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} /> */}
           <Typography
@@ -129,8 +132,7 @@ function Navbar() {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                {/* <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" /> */}
-                <Link to="/signin"> sdfsdf</Link>
+                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
               </IconButton>
             </Tooltip>
             <Menu
