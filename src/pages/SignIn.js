@@ -5,17 +5,19 @@ import "../styles/form.css";
 import { Link } from "react-router-dom";
 import { userLogin } from "../api";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../provider/AuthProvider";
 function SignIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const { user, login, logout } = useAuth();
   const handleLogin = async (e) => {
     setLoading(true);
     e.preventDefault();
-    const response = await userLogin(email, password);
+    const response = await login(email, password);
     setLoading(false);
-    if (response.token) {
+    if (response) {
       navigate("/");
     }
     setEmail("");

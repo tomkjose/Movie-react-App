@@ -36,9 +36,27 @@ export const userSignup = async (username, email, password) => {
 
 export const userDetails = async (id) => {
   const response = await axios.get(API_URLS.getuserDetails(id));
-  const user = response.data.user;
+  const user = response.data;
   if (!user) {
     return null;
   }
   return user;
+};
+
+export const userRating = async (id, rating) => {
+  const token = localStorage.getItem("LOCAL_STORAGE_TOKEN");
+  console.log("inside user rating");
+  console.log("id", id);
+  console.log("rating", rating);
+  const response = await axios.put(
+    API_URLS.rateMovie(id),
+    { rating },
+    {
+      headers: {
+        Authorization: `${token}`,
+      },
+    }
+  );
+
+  return response;
 };

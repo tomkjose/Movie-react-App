@@ -10,5 +10,5 @@ export const API_URLS = {
   fetchMovie: (id) => `${API_ROOT}/movies/movie/${id}`,
   deleteMovie: (id) => `${API_ROOT}/movies/${id}`,
   updateMovie: (id) => `${API_ROOT}/movies/${id}`,
-  rateMovie: (id) => `${API_ROOT}/rating/${id}`,
+  rateMovie: (id) => `${API_ROOT}/movies/rating/${id}`,
 };
