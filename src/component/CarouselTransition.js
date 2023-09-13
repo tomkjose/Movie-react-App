@@ -1,23 +1,13 @@
-import { Carousel } from "@material-tailwind/react";
+import React from "react";
 
-export function CarouselTransition({ image = [] }) {
-  if (!Array.isArray(image) || image.length === 0) {
-    return (
-      // You can render a placeholder or error message here
-      <div>No images available</div>
-    );
-  }
-
+function CarouselTransition({ image }) {
   return (
-    <Carousel transition={{ duration: 2 }} className="rounded-xl">
-      {image.map((img, index) => (
-        <img
-          key={index}
-          src={img}
-          alt={`image ${index + 1}`}
-          className="h-full w-full object-cover"
-        />
-      ))}
-    </Carousel>
+    <div className="gallery-image">
+      {image.map((i, index) => {
+        return <img src={i} alt={index} className="gallery-thumbnail" />;
+      })}
+    </div>
   );
 }
+
+export default CarouselTransition;

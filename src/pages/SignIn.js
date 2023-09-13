@@ -26,7 +26,7 @@ function SignIn() {
   return (
     <div>
       <form className="form" onSubmit={handleLogin} method="POST">
-        <div className="header">Sign In</div>
+        <div className="header-section">Sign In</div>
         <TextField
           required
           id="outlined-required"

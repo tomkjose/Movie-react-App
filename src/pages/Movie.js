@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { fetchMovieDetails, userRating } from "../api";
 import Rating from "@mui/material/Rating";
 import "../styles/movie.css";
-import { CarouselTransition } from "../component/CarouselTransition";
+import CarouselTransition from "../component/CarouselTransition";
 import { useAuth } from "../provider/AuthProvider";
 function Movie() {
   const { id } = useParams();
@@ -16,6 +16,7 @@ function Movie() {
     userRating(id, newRating);
   };
   const { user } = useAuth;
+  console.log("user", user);
   useEffect(() => {
     async function handleMovieDetails() {
       const response = await fetchMovieDetails(id);
@@ -66,17 +67,13 @@ function Movie() {
           )}
         </div>
         <div className="images">
-          <img
-            src={movie.thumbnail}
-            alt={movie.title}
-            style={{ width: "10rem" }}
-          />
+          <img src={movie.thumbnail} alt={movie.title} className="thumbnail" />
           <div className="text">
             <div className="category">{movie.category}</div>
             <div className="description">{movie.description}</div>
           </div>
         </div>
-        <h3>Gallery</h3>
+        <h3 className="gallery">Gallery</h3>
         <CarouselTransition image={movie.image} />
       </div>
     </div>

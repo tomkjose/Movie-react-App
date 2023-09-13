@@ -6,10 +6,22 @@
   gap: 4rem;
   height: 100vh;
 }
+.title,
+.gallery {
+  font-size: 1.8rem;
+}
+
+.gallery-image {
+  display: flex;
+}
 
 @media only screen and (max-width: 692px) {
   .home {
     flex-direction: column;
     flex-wrap: nowrap;
+  }
+
+  .gallery-image {
+    flex-direction: column;
   }
 }

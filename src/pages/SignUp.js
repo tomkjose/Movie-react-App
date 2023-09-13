@@ -28,7 +28,7 @@ function SignUp() {
     <div>
       <div>
         <form className="form" method="POST" onSubmit={handleSignUp}>
-          <div className="header">Sign Up</div>
+          <div className="header-section">Sign Up</div>
           <TextField
             required
             id="outlined-required"
