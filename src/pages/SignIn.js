@@ -1,17 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import "../styles/form.css";
 import { Link } from "react-router-dom";
+import { userLogin } from "../api";
+import { useNavigate } from "react-router-dom";
 function SignIn() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+  const handleLogin = async (e) => {
+    setLoading(true);
+    e.preventDefault();
+    const response = await userLogin(email, password);
+    setLoading(false);
+    if (response.token) {
+      navigate("/");
+    }
+    setEmail("");
+    setPassword("");
+  };
   return (
     <div>
-      <form className="form">
+      <form className="form" onSubmit={handleLogin} method="POST">
         <div className="header">Sign In</div>
         <TextField
           required
           id="outlined-required"
           label="Email"
+          name="email"
+          onChange={(e) => setEmail(e.target.value)}
           sx={{
             width: "100%",
             "& label": {
@@ -36,7 +55,9 @@ function SignIn() {
           id="outlined-password-input"
           label="Password"
           type="password"
+          name="password"
           autoComplete="current-password"
+          onChange={(e) => setPassword(e.target.value)}
           sx={{
             width: "100%",
             "& label": {
@@ -55,6 +76,7 @@ function SignIn() {
         />
         <Button
           variant="outlined"
+          type="submit"
           sx={{
             color: "#df3a3a",
             width: "100%",
