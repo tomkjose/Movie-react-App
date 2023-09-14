@@ -20,7 +20,7 @@ export default function MovieCard({ movie }) {
           width: "100%",
         },
       }}
-      key={movie.id}
+      key={movie._id}
     >
       {movie ? (
         <CardMedia

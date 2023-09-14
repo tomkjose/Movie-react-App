@@ -64,7 +64,7 @@ function Navbar() {
       children: `${name.split(" ")[0][0]}`,
     };
   }
-  console.log("user", user);
+  // console.log("user", user);
   return (
     <AppBar position="static" sx={{ boxShadow: "none" }}>
       <Container
@@ -182,7 +182,10 @@ function Navbar() {
                 onClose={handleCloseUserMenu}
               >
                 <MenuItem onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">Profile</Typography>
+                  <Typography textAlign="center">
+                    {" "}
+                    <Link to="/profile">Profile </Link>
+                  </Typography>
                 </MenuItem>
                 <MenuItem onClick={handleCloseUserMenu}>
                   <Typography textAlign="center">

@@ -2,7 +2,7 @@ import axios from "axios";
 import { API_URLS } from "../utils/constants";
 
 export const fetchMovies = async () => {
-  console.log("API_URLS.movies", API_URLS.movies);
+  // console.log("API_URLS.movies", API_URLS.movies);
   const response = await axios.get(API_URLS.movies());
   const data = response.data.movies;
   return data;
@@ -11,7 +11,7 @@ export const fetchMovies = async () => {
 export const fetchMovieDetails = async (id) => {
   const response = await axios.get(API_URLS.fetchMovie(id));
   const data = response.data;
-  console.log("data", data);
+  // console.log("data", data);
   return data;
 };
 
@@ -45,9 +45,9 @@ export const userDetails = async (id) => {
 
 export const userRating = async (id, rating) => {
   const token = localStorage.getItem("LOCAL_STORAGE_TOKEN");
-  console.log("inside user rating");
-  console.log("id", id);
-  console.log("rating", rating);
+  // console.log("inside user rating");
+  // console.log("id", id);
+  // console.log("rating", rating);
   const response = await axios.put(
     API_URLS.rateMovie(id),
     { rating },
@@ -58,5 +58,28 @@ export const userRating = async (id, rating) => {
     }
   );
 
+  return response;
+};
+
+export const updateProfile = async (
+  id,
+  email,
+  username,
+  firstName,
+  lastName,
+  address,
+  city,
+  country
+) => {
+  const token = localStorage.getItem("LOCAL_STORAGE_TOKEN");
+  const response = await axios.put(
+    API_URLS.userUpdate(id),
+    { email, username, firstName, lastName, address, city, country },
+    {
+      headers: {
+        Authorization: `${token}`,
+      },
+    }
+  );
   return response;
 };

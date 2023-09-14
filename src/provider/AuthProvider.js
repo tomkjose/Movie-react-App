@@ -15,9 +15,8 @@ export const AuthProvider = ({ children }) => {
 
         if (token) {
           const user = await userDetails(token.userId);
-          console.log("token", token);
+
           setUser(user);
-          console.log("user", user);
         }
       }
     }
@@ -28,7 +27,7 @@ export const AuthProvider = ({ children }) => {
     const response = await userLogin(email, password);
     if (response) {
       const token = response.token;
-      console.log("token", token);
+
       const localToken = jwt(token);
       const user = await userDetails(localToken.userId);
       setUser(user);

@@ -16,6 +16,15 @@
   display: flex;
 }
 
+.fof {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.fof-heading {
+  font-size: 10rem;
+}
 @media only screen and (max-width: 692px) {
   .home {
     flex-direction: column;

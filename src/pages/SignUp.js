@@ -16,12 +16,16 @@ function SignUp() {
   const handleSignUp = async (e) => {
     setLoading(true);
     e.preventDefault();
-    const response = await userSignup(username, email, password);
-    console.log("response", response);
-
+    try {
+      const response = await userSignup(username, email, password);
+      // console.log("response", response);
+      if (response.status === 201) navigate("/signin");
+    } catch (error) {
+      console.log("error", error);
+      navigate("/signup");
+    }
     setLoading(false);
     // console.log(response.error.message);
-    if (response.status === 201) navigate("/signin");
     setUsername("");
     setEmail("");
     setPassword("");

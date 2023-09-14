@@ -7,7 +7,7 @@ function Home({ movies }) {
     <div className="home">
       <CarouselHome />
       {movies.map((movie) => (
-        <MovieCard key={movie.id} movie={movie} />
+        <MovieCard key={movie._id} movie={movie} />
       ))}
     </div>
   );

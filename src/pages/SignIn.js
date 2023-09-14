@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 import { userLogin } from "../api";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../provider/AuthProvider";
-import { Redirect } from "react-router-dom";
 function SignIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -20,11 +19,16 @@ function SignIn() {
   const handleLogin = async (e) => {
     setLoading(true);
     e.preventDefault();
-    const response = await login(email, password);
-    setLoading(false);
-    if (response) {
-      navigate("/");
+    try {
+      const response = await login(email, password);
+      if (response) {
+        navigate("/");
+      }
+    } catch (error) {
+      console.log("error", error);
+      navigate("/signin");
     }
+    setLoading(false);
     setEmail("");
     setPassword("");
   };
