@@ -16,6 +16,7 @@ import "../styles/app.css";
 import jwt from "jwt-decode";
 import { userDetails } from "../api";
 import { AuthProvider } from "../provider/AuthProvider";
+
 function App() {
   const [movies, setMovies] = useState([]);
   const [user, setUser] = useState(null);
