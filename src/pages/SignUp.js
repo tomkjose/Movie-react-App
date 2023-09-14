@@ -4,11 +4,14 @@ import { Link } from "react-router-dom";
 import "../styles/form.css";
 import { userSignup } from "../api";
 import { useNavigate } from "react-router-dom";
+import { Redirect } from "react-router-dom";
+import { useAuth } from "../provider/AuthProvider";
 function SignUp() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const { user, login, logout } = useAuth();
   const navigate = useNavigate();
   const handleSignUp = async (e) => {
     setLoading(true);
@@ -23,7 +26,9 @@ function SignUp() {
     setEmail("");
     setPassword("");
   };
-
+  if (user) {
+    navigate("/");
+  }
   return (
     <div>
       <div>

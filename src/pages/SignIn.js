@@ -6,12 +6,17 @@ import { Link } from "react-router-dom";
 import { userLogin } from "../api";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../provider/AuthProvider";
+import { Redirect } from "react-router-dom";
 function SignIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const { user, login, logout } = useAuth();
+
+  if (user) {
+    navigate("/");
+  }
   const handleLogin = async (e) => {
     setLoading(true);
     e.preventDefault();
