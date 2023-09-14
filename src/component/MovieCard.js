@@ -9,7 +9,19 @@ import { Link } from "react-router-dom";
 import "../styles/home.css";
 export default function MovieCard({ movie }) {
   return (
-    <Card sx={{ width: "20%", backgroundColor: "#272b35" }} key={movie.id}>
+    <Card
+      sx={{
+        width: "20%",
+        backgroundColor: "#272b35",
+        "@media (max-width: 1200px)": {
+          width: "40%",
+        },
+        "@media (max-width: 693px)": {
+          width: "100%",
+        },
+      }}
+      key={movie.id}
+    >
       {movie ? (
         <CardMedia
           sx={{ height: "300px" }}
