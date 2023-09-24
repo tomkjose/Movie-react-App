@@ -66,7 +66,10 @@ function Navbar() {
   }
   // console.log("user", user);
   return (
-    <AppBar position="static" sx={{ boxShadow: "none" }}>
+    <AppBar
+      position="static"
+      sx={{ boxShadow: "none", backgroundColor: "#22262f" }}
+    >
       <Container
         maxWidth="xl"
         sx={{ backgroundColor: "#22262f", color: "white" }}
