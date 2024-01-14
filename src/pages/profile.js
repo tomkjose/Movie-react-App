@@ -43,18 +43,6 @@ function Profile() {
     // console.log("user._id", user._id);
 
     // updateProfile({ userId, ...localState });
-
-    const response = await updateProfile(
-      userId,
-      localState.email,
-      localState.username,
-      localState.firstName,
-      localState.lastName,
-      localState.address,
-      localState.city,
-      localState.country
-    );
-    // console.log("response", response);
   };
 
   const handleInputChange = (e) => {

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export function CarouselHome() {
   return (
-    <Carousel className="rounded-xl h-80 overflow-hidden">
+    <Carousel className="rounded-xl h-80 overflow-hidden hidden  md:flex	">
       <div className="relative h-full w-full">
         <img
           src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhb9wwCQGEZlYsdp4wWJROL5dRdxO1CGtuf4AhELJxUbXTxooME3YDjsusxM7k1jGh6cenFpgb6cP2mvmKhpekmtsA5yKWt5oKuQactDcZE87jCCD0XSArSaL23jFVYRUwxSnJ78RYM4efEneKKrfQrOU2G8weYNcLLPlvVMiaqvVSS9ZYI0vPDeJjbVCPJ/s1203/Screenshot%202023-09-10%20124646.png"
